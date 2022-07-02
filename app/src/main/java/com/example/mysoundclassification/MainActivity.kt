@@ -99,10 +99,20 @@ class MainActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     textView.text = outputStr
-                    if (textView.text.contains("Dog"))
+                    if (textView.text.contains("Dog")){
                         vibratePhone("Dog")
-                    if (textView.text.contains("Cry"))
+                        println("********* IF DOG *********")
+                    }else if (textView.text.contains("Cry")){
                         vibratePhone("Crying")
+                        println("********* IF Crying *********")
+                    }else if (textView.text.contains("Music")){
+                        //vibratePhone("Crying")
+                        println("********* IF Music *********")
+                    }else {
+                        println("********* NO ES NINGUN SONIDO REQUERIDO *********")
+                    }
+
+
                 }
 
                 //vibratePhone()
