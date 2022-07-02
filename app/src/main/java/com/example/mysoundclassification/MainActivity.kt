@@ -15,11 +15,15 @@
 package com.example.mysoundclassification
 
 import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import android.os.Vibrator
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import org.tensorflow.lite.task.audio.classifier.AudioClassifier
+import java.time.Instant
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.concurrent.scheduleAtFixedRate
 
@@ -34,9 +38,12 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var textView: TextView
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun vibratePhone(tipo: String): String {
         val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
         //val pattern = longArrayOf(0, 100, 1000, 200, 2000)
+        val midiendotiempo =  DateTimeFormatter.ISO_INSTANT.format(Instant.now())
+        println("Ingreso a la funcion vibracion en :" + midiendotiempo)
         if (tipo == "Dog")
             //vibrator.vibrate(pattern,-1)
             vibrator.vibrate(100) // 500 es mucho, 150 es como un pulso de medio segundo
@@ -52,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     //    vibrator.vibrate(300) // 500 es mucho, 150 es como un pulso de medio segundo
     //}
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
