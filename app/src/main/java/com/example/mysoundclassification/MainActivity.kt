@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         val record = classifier.createAudioRecord()
         record.startRecording()
 
-        Timer().scheduleAtFixedRate(1, 500) {
+        Timer().scheduleAtFixedRate(1, 500) { //ORIGINALMENTE EL PERIODO ESTABA EN 500 haciendo pruebas con 4500
 
             // TODO 4.1: Classifing audio data
             val numberOfSamples = tensor.load(record)
@@ -99,6 +99,8 @@ class MainActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     textView.text = outputStr
+                    println("outputStr: " + outputStr)
+                    println("textView.text: " + textView.text)
                     if (textView.text.contains("Dog")){
                         vibratePhone("Dog")
                         println("********* IF DOG *********")
@@ -110,9 +112,9 @@ class MainActivity : AppCompatActivity() {
                         println("********* IF Music *********")
                     }else {
                         println("********* NO ES NINGUN SONIDO REQUERIDO *********")
+                        textView.text = "NO ES NINGUN SONIDO REQUERIDO"
                     }
-
-
+                    
                 }
 
                 //vibratePhone()
