@@ -101,20 +101,34 @@ class MainActivity : AppCompatActivity() {
                     textView.text = outputStr
                     println("outputStr: " + outputStr)
                     println("textView.text: " + textView.text)
-                    if (textView.text.contains("Dog")){
+
+                    if (textView.text.contains("Dog") ||
+                        textView.text.contains("pets") ||
+                        textView.text.contains("Domestic animals") ){
                         vibratePhone("Dog")
+                        textView.text = "PERRO DETECTADO :)"
                         println("********* IF DOG *********")
-                    }else if (textView.text.contains("Cry")){
+                    }else if (textView.text.contains("Cry") ||
+                        textView.text.contains("Baby cry") ||
+                        textView.text.contains("sobbing") ){
                         vibratePhone("Crying")
+                        textView.text = "BEBE LLORANDO :'("
+                        println("********* IF Crying *********")
+                    }else if (textView.text.contains("alarm") ||
+                        textView.text.contains("Siren") ||
+                        textView.text.contains("Police") ){
+                        //vibratePhone("Crying")
+                        textView.text = "░░░░!!! 1312 - Alarma - Sirenas - 1312 !!!░░░"
                         println("********* IF Crying *********")
                     }else if (textView.text.contains("Music")){
                         //vibratePhone("Crying")
+                        textView.text = "♪♫ Musikita ♫♪"
                         println("********* IF Music *********")
                     }else {
                         println("********* NO ES NINGUN SONIDO REQUERIDO *********")
-                        textView.text = "NO ES NINGUN SONIDO REQUERIDO"
+                        //textView.text = "DETECTANDO SONIDOS "
                     }
-                    
+
                 }
 
                 //vibratePhone()
