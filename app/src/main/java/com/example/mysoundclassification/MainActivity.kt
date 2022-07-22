@@ -126,8 +126,8 @@ class MainActivity : AppCompatActivity() {
                         textView.text.contains("Siren") ||
                         textView.text.contains("Police") ){
                         //vibratePhone("Crying")
-                        textView.text = "░░░░!!! 1312 - Alarma - Sirenas - 1312 !!!░░░"
-                        println("********* IF Crying *********")
+                        textView.text = "░░░░!!! Alarma - Sirenas - 1312 !!!░░░"
+                        println("********* IF Alarmas *********")
                     }else if (textView.text.contains("Music")){
                         //vibratePhone("Crying")
                         textView.text = "♪♫ Musikita ♫♪"
